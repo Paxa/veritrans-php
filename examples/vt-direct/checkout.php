@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../../Veritrans.php');
 
 // YOUR CLIENT KEY
 // can find in Merchant Portal -> Settings -> Access keys
-Veritrans_Config::$clientKey = "<your client key>";
+Veritrans_Config::$clientKey = "VT-client-NArmatJZqzsmTmzR";
 
 if (Veritrans_Config::$clientKey == "<your client key>") {
   echo "<p style='background: #FFB588; padding: 10px;'>";
@@ -15,13 +15,13 @@ if (Veritrans_Config::$clientKey == "<your client key>") {
 
 <head>
   <title>Checkout</title>
-  <link rel="stylesheet" href="jquery.fancybox.css">
+  <link rel="stylesheet" href="jquery-ui.css">
 </head>
 
 <body>
   <script type="text/javascript" src="https://api.sandbox.veritrans.co.id/v2/assets/js/veritrans.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript" src="jquery.fancybox.pack.js"></script>
+  <script src="jquery-ui.js"></script>
 
   <h1>Checkout</h1>
   <form action="checkout-process.php" method="POST" id="payment-form">
@@ -118,20 +118,23 @@ if (Veritrans_Config::$clientKey == "<your client key>") {
         }
       }
 
+      var dialog;
       function openDialog(url) {
-        $.fancybox.open({
-          href: url,
-          type: "iframe",
-          autoSize: false,
+        var iframe = $("<iframe />").attr("src", url);
+        iframe.attr('frameborder', 0).attr('width', '100%').attr('height', '100%');
+
+        dialog = $("<div></div>").append(iframe).dialog({
+          autoOpen: true,
+          modal: true,
+          resizable: false,
           width: 700,
           height: 500,
-          closeBtn: false,
-          modal: true
+          close: function () { iframe.attr("src", ""); }
         });
       }
 
       function closeDialog() {
-        $.fancybox.close();
+        dialog && dialog.dialog('close');
       }
 
       $(".submit-button").click(function (event) {
