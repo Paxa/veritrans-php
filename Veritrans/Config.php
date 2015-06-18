@@ -14,7 +14,6 @@ class Veritrans_Config {
    * @static
    */
   public static $clientKey;
-  public static $apiVersion = 2;
   /**
    * true for production
    * false for sandbox mode
