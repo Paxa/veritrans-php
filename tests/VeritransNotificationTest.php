@@ -19,6 +19,7 @@ class VeritransNotificationTest extends PHPUnit_Framework_TestCase
 {
 
     public function testCanWorkWithJSON() {
+        var_dump(ini_get("curl.cainfo"));
         $tmpfname = tempnam(sys_get_temp_dir(), "veritrans_test");
         file_put_contents($tmpfname, TEST_CAPTURE_JSON);
 

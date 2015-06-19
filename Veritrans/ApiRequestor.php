@@ -46,8 +46,7 @@ class Veritrans_ApiRequestor {
         'Accept: application/json',
         'Authorization: Basic ' . base64_encode($server_key . ':')
       ),
-      CURLOPT_RETURNTRANSFER => 1,
-      CURLOPT_CAINFO => dirname(__FILE__) . "/../data/cacert.pem"
+      CURLOPT_RETURNTRANSFER => 1
     );
 
     // merging with Veritrans_Config::$curlOptions
