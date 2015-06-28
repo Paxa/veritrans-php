@@ -1,0 +1,12 @@
+{
+    "status_code" : "200",
+    "status_message" : "Veritrans payment notification",
+    "transaction_id" : "826acc53-14e0-4ae7-95e2-845bf0311579",
+    "order_id" : "2014040745",
+    "payment_type" : "credit_card",
+    "transaction_time" : "2014-04-07 16:22:36",
+    "transaction_status" : "capture",
+    "fraud_status" : "accept",
+    "masked_card" : "411111-1111",
+    "gross_amount" : "2700"
+}
