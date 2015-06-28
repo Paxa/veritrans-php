@@ -8,18 +8,7 @@ class VtDirectIntegrationTest extends VtIntegrationTest {
 
 	public function prepareChargeParams($payment_type, $payment_data = NULL) {
 		$this->payment_type = $payment_type;
-
-		$arguments = 
-			array(
-					"transaction_details" => array("order_id" => rand()),
-					"payment_type" => $payment_type
-			);
-
-		if(!is_null($payment_data)){
-			$arguments[$payment_type] = $payment_data;
-		}
-		
-		$this->charge_params = VtFixture::build("vt_charge.json", $arguments);
+		$this->charge_params = VtFixture::buildChargeParams($payment_type, $payment_data);
 	}
 
 	public function testChargeMandiriClickpay() {

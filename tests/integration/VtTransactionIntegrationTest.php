@@ -9,12 +9,10 @@ class VtTransactionIntegrationTest extends VtIntegrationTest {
 	 * @before
 	 */
 	public function doPermataVaTransaction(){
-		$this->charge_params = VtFixture::build('vt_charge.json',
-			array(
-				"transaction_details" => array("order_id" => rand()),
-				"payment_type" => "bank_transfer",
-				"bank_transfer" => array("bank" => "permata")
-			));
+		$this->charge_params = VtFixture::buildChargeParams(
+			'bank_transfer',
+			array("bank" => "permata")
+		);
 		$this->charge_response = Veritrans_VtDirect::charge($this->charge_params);
 	}
 
