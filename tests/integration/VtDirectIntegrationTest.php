@@ -8,7 +8,7 @@ class VtDirectIntegrationTest extends VtIntegrationTest {
 
 	public function prepareChargeParams($payment_type, $payment_data = NULL) {
 		$this->payment_type = $payment_type;
-		$this->charge_params = VtChargeFixture::build($payment_type, $payment_data);
+		$this->charge_params = VtFixture::buildChargeParams($payment_type, $payment_data);
 	}
 
 	public function testChargeMandiriClickpay() {

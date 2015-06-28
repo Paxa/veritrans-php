@@ -6,7 +6,7 @@ class VeritransVtWebTest extends PHPUnit_Framework_TestCase
     public function testGetRedirectionUrl() {
       Veritrans_Config::$serverKey = 'My Very Secret Key';
       VT_Tests::$stubHttp = true;
-      VT_Tests::$stubHttpResponse = '{ "status_code": 200, "redirect_url": "http://host.com/pay" }';
+      VT_Tests::$stubHttpResponse = VtFixture::read("vt_response_vtweb.json");
 
       $params = array(
         'transaction_details' => array(
@@ -47,7 +47,7 @@ class VeritransVtWebTest extends PHPUnit_Framework_TestCase
       );
 
       VT_Tests::$stubHttp = true;
-      VT_Tests::$stubHttpResponse = '{ "status_code": 200, "redirect_url": "http://host.com/pay" }';
+      VT_Tests::$stubHttpResponse = VtFixture::read("vt_response_vtweb.json");
 
       $paymentUrl = Veritrans_Vtweb::getRedirectionUrl($params);
 
@@ -65,7 +65,7 @@ class VeritransVtWebTest extends PHPUnit_Framework_TestCase
       );
 
       VT_Tests::$stubHttp = true;
-      VT_Tests::$stubHttpResponse = '{ "status_code": 200, "redirect_url": "http://host.com/pay" }';
+      VT_Tests::$stubHttpResponse = VtFixture::read("vt_response_vtweb.json");
 
       $paymentUrl = Veritrans_Vtweb::getRedirectionUrl($params);
 

@@ -55,20 +55,7 @@ class VeritransVtDirectTest extends PHPUnit_Framework_TestCase
 
     public function testCapture() {
       VT_Tests::$stubHttp = true;
-      VT_Tests::$stubHttpResponse = '{
-        "status_code": "200",
-        "status_message": "Success, Credit Card capture transaction is successful",
-        "transaction_id": "1ac1a089d-a587-40f1-a936-a7770667d6dd",
-        "order_id": "A27550",
-        "payment_type": "credit_card",
-        "transaction_time": "2014-08-25 10:20:54",
-        "transaction_status": "capture",
-        "fraud_status": "accept",
-        "masked_card": "481111-1114",
-        "bank": "bni",
-        "approval_code": "1408937217061",
-        "gross_amount": "55000.00"
-      }';
+      VT_Tests::$stubHttpResponse = VtFixture::read('vt_response_cc_capture.json');
 
       $capture = Veritrans_VtDirect::capture("A27550");
 

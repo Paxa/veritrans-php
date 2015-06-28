@@ -5,7 +5,7 @@ class VeritransNotificationIntegrationTest extends VtIntegrationTest {
 	private $status_response;
 
 	public function setUp() {
-		$charge_params = VtChargeFixture::build('bri_epay');
+		$charge_params = VtFixture::buildChargeParams('bri_epay');
 		$charge_response = Veritrans_VtDirect::charge($charge_params);
 		$this->status_response = Veritrans_Transaction::status($charge_response->transaction_id);
 	}

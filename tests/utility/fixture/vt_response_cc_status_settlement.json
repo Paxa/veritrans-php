@@ -1,0 +1,15 @@
+{
+    "status_code": "200",
+    "status_message": "Success, transaction found",
+    "transaction_id": "e3b8c383-55b4-4223-bd77-15c48c0245ca",
+    "masked_card": "481111-1114",
+    "order_id": "Order-111",
+    "payment_type": "credit_card",
+    "transaction_time": "2014-11-21 13:07:50",
+    "transaction_status": "settlement",
+    "fraud_status": "accept",
+    "approval_code": "1416550071152",
+    "signature_key": "4ef8218aad5b64bae2ec9d6b0f0a0b059b88bd...",
+    "bank": "mandiri",
+    "gross_amount": "10000.00"
+}
